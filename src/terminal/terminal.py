@@ -1,4 +1,3 @@
-from terminal.terminal_pages import TerminalPages
 from terminal.terminal_pages import TerminalSelectPage
 
 BANNER = "UDP client"
