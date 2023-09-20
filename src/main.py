@@ -1,2 +1,5 @@
+from terminal.terminal import Terminal
+
 if __name__ == '__main__':
-    print("UDP client")
+    tm = Terminal()
+    tm.wait_input()
