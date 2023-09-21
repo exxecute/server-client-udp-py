@@ -32,6 +32,7 @@ class PageClient(TerminalPage):
             elif option == '1':
                 test_socket = UDPClient()
                 parser = YamlServerConfigAPI(ZYNQ_SERVER_PATH)
-                test_socket.new_connection(parser.get_ip(), parser.get_port()) 
-                test_socket.send_message(1)
+                test_socket.new_connection(parser.get_ip(), parser.get_port())
+                message = "Hello from client" 
+                test_socket.send_message(str.encode(message))
             
