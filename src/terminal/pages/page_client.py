@@ -1,4 +1,5 @@
 from terminal.pages.page import TerminalPage
+from yaml_reader.yaml_reader import YamlServerConfigAPI
 from udp.client import UDPClient
 
 PAGE_BANNER = \
@@ -11,6 +12,7 @@ Client options:
 1 - Test sending to zynq server
 0 - Exit client page
 '''
+ZYNQ_SERVER_PATH = "./zynq-config.yaml"
 
 class PageClient(TerminalPage):
     def __init__(self, terminal):
@@ -29,8 +31,7 @@ class PageClient(TerminalPage):
 
             elif option == '1':
                 test_socket = UDPClient()
-                server_ip = "192.168.122.115"
-                server_port = 22
-                test_socket.new_connection(server_ip, server_port) 
+                parser = YamlServerConfigAPI(ZYNQ_SERVER_PATH)
+                test_socket.new_connection(parser.get_ip(), parser.get_port()) 
                 test_socket.send_message(1)
             
