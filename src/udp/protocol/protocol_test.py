@@ -1,7 +1,7 @@
 from udp.protocol.protocol import *
 
 REQUEST_CODE = 0x01
-REQUEST_SIZE = 3
+REQUEST_SIZE = 1
 
 ANSWER_CODE = 0x01
 
@@ -23,7 +23,7 @@ class TestProtocol():
         request_package.append(self.test_byte)
         request_package.append(STOP_BYTE)
 
-        return request_package
+        return bytes(request_package)
     
     def answer_get_test_byte(self, package):
         return package[ANSWER_BYTE_INDEX]

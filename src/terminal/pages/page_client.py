@@ -10,8 +10,8 @@ Client for zynq server'''
 CLIENT_OPTIONS = \
 '''
 Client options:
-1 - Test sending to zynq server
 0 - Exit client page
+1 - Test sending to zynq server
 '''
 ZYNQ_SERVER_PATH = "./zynq-config.yaml"
 
@@ -36,15 +36,11 @@ class PageClient(TerminalPage):
                 socket = UDPClient()
                 parser = YamlServerConfigAPI(ZYNQ_SERVER_PATH)
                 socket.new_connection(parser.get_ip(), parser.get_port())
-                # message = "Hello from client" 
-                # test_socket.send_message(str.encode(message))
-                while True:
-                    test_byte = input("input test byte: ")
-                    if(test_byte.isnumeric() and test_byte >= MAX_BYTE):
-                        break
-                    test_protocol = TestProtocol(test_byte)
-                    
-                    socket.send_message(test_protocol.get_request())
 
-                
-            
+                while True:
+                    test_byte = int(input("input test byte: "))
+                    if(test_byte <= MAX_BYTE):
+                        break
+
+                test_protocol = TestProtocol(test_byte)  
+                socket.send_message(test_protocol.get_request())
