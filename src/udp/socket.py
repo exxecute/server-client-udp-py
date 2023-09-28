@@ -12,4 +12,4 @@ class SocketAPI():
         self.client_socket.sendto(bytes_to_send, self.server_address_port)
 
     def recieve_from(self):
-        self.client_socket.recvfrom(1024)
+        return self.client_socket.recvfrom(1024)

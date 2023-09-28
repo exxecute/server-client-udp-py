@@ -44,3 +44,5 @@ class PageClient(TerminalPage):
 
                 test_protocol = TestProtocol(test_byte)  
                 socket.send_message(test_protocol.get_request())
+
+                print("recieved data:", socket.receive_message())
