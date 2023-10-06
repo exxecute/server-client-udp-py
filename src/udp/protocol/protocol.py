@@ -1,2 +1,0 @@
-START_BYTE = 0xc0
-STOP_BYTE = 0xce

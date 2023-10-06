@@ -1,7 +1,6 @@
 from terminal.pages.page import TerminalPage
 from yaml_reader.yaml_reader import YamlServerConfigAPI
 from udp.client import UDPClient
-from udp.protocol.protocol_test import TestProtocol
 
 PAGE_BANNER = \
 '''
@@ -42,7 +41,7 @@ class PageClient(TerminalPage):
                     if(test_byte <= MAX_BYTE):
                         break
 
-                test_protocol = TestProtocol(test_byte)  
-                socket.send_message(test_protocol.get_request())
+                # test_protocol = TestProtocol(test_byte)  
+                # socket.send_message(test_protocol.get_request())
 
-                print("recieved data:", socket.receive_message())
+                # print("recieved data:", socket.receive_message())
