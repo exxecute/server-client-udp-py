@@ -20,3 +20,10 @@ class PackageAPI():
                     _is_package = True
 
         return __buffer[self.start_byte : self.stop_byte]
+    
+    def code_package(self, __buffer, __buffer_size):
+        _package = []
+        _package = START_PACKAGE_COMBINATION
+        _package[len(_package):] = __buffer[:__buffer_size]
+        _package[len(_package):] = STOP_PACKAGE_COMBINATION
+        return _package

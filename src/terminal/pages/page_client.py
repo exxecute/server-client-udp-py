@@ -1,6 +1,7 @@
 from terminal.pages.page import TerminalPage
 from yaml_reader.yaml_reader import YamlServerConfigAPI
 from udp.client import UDPClient
+from udp.protocol.package_api import PackageAPI
 
 PAGE_BANNER = \
 '''
@@ -34,6 +35,7 @@ class PageClient(TerminalPage):
             elif option == '1':
                 socket_writing = UDPClient()
                 parser = YamlServerConfigAPI(ZYNQ_SERVER_PATH)
+                package_api = PackageAPI()
                 socket_writing.new_connection(parser.get_ip(), parser.get_port_writing())
 
                 while True:
