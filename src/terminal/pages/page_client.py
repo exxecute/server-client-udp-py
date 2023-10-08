@@ -32,9 +32,9 @@ class PageClient(TerminalPage):
                 self.flag_client_loop = False
 
             elif option == '1':
-                socket = UDPClient()
+                socket_writing = UDPClient()
                 parser = YamlServerConfigAPI(ZYNQ_SERVER_PATH)
-                socket.new_connection(parser.get_ip(), parser.get_port())
+                socket_writing.new_connection(parser.get_ip(), parser.get_port_writing())
 
                 while True:
                     test_byte = int(input("input test byte: "))
@@ -42,6 +42,6 @@ class PageClient(TerminalPage):
                         break
 
                 # test_protocol = TestProtocol(test_byte)  
-                # socket.send_message(test_protocol.get_request())
+                # socket_writing.send_message(test_protocol.get_request())
 
-                # print("recieved data:", socket.receive_message())
+                # print("recieved data:", socket_writing.receive_message())
